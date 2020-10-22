@@ -12,12 +12,12 @@ function BodyData({date}) {
     console.log(data);
     return(
         <div>
+            Title: {data.title}
+            <br></br>
             {data.media_type === 'image' 
             ? <img src={data.url} alt="NASA APOD"/> 
             : <iframe width="825" height="640" src={`${data.url}`}></iframe>}
             <div>
-                Title: {data.title}
-                <br></br>
                 {data.explanation}
             </div>
         </div>
