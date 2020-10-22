@@ -8,10 +8,11 @@ function BodyData({date}) {
         axios.get(`https://api.nasa.gov/planetary/apod?api_key=vUhLzjh47gSz2vqQOyZryZ6VWh2E6hSCJJosyzmg&date=${newDate}`)
             .then(response => setData(response.data))
             .catch(error => console.log(error));
-    }, [date])
+    }, [newDate])
+    console.log(data);
     return(
         <div>
-            <img src={data.url}/>
+        {data.media_type === 'image' ? <img src={data.url} alt="NASA APOD"/> : <iframe width="825" height="640" src={`${data.url}?autoplay=1&mute=1`}></iframe>}
         </div>
     )
 }
