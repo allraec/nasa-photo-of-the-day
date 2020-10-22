@@ -12,7 +12,7 @@ function BodyData({date}) {
     console.log(data);
     return(
         <div>
-        {data.media_type === 'image' ? <img src={data.url} alt="NASA APOD"/> : <iframe width="825" height="640" src={`${data.url}?autoplay=1&mute=1`}></iframe>}
+        {data.media_type === 'image' ? <img src={data.url} alt="NASA APOD"/> : <iframe width="825" height="640" src={`${data.url}`}></iframe>}
         </div>
     )
 }
