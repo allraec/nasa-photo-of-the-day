@@ -1,8 +1,13 @@
 import React from "react";
+import styled from 'styled-components';
+
+const HeaderStyle = styled.h1`
+    color: #D30C7B;
+`;
 
 function Header() {
     return (
-        <h1>NASA Photo of the Day</h1>
+        <HeaderStyle>NASA Photo of the Day</HeaderStyle>
     );
 }
   

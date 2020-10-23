@@ -19,8 +19,16 @@ const FlexContainer = styled.div`
     flex-direction: column;
     align-content: space-around;
     width: 50%;
+    z-index: 3;
 `;
 
+const TitleStyle = styled.h2`
+    color: #9097c0;
+`;
+
+const ExplanationStyle = styled.p`
+    color: #fac8cd;
+`;
 function BodyData({date}) {
     const [data, setData] = useState("");
     const newDate = date.toISOString().slice(0,10);
@@ -38,8 +46,8 @@ function BodyData({date}) {
                 : <iframe width="550" height="500" src={`${data.url}`}></iframe>}
             </FlexContainer>
             <FlexContainer>
-                <h2>{data.title}</h2>
-                <p>{data.explanation}</p>
+                <TitleStyle>{data.title}</TitleStyle>
+                <ExplanationStyle>{data.explanation}</ExplanationStyle>
             </FlexContainer>
         </DataContainer>
     )

@@ -5,7 +5,14 @@ import {
   DatePicker,
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
+import styled from 'styled-components'
 
+const DatePickContainer = styled.div`
+    background: white;
+    border-radius: 2%;
+    margin: 0 46% 0 45%;
+    border: 5px solid black;
+`;
 
 function Body() {
     const currentDate = new Date();
@@ -13,9 +20,11 @@ function Body() {
     console.log(date);
     return (
         <div>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker  value={date} onChange={setDate} maxDate={currentDate} label="Pick a Date"/>
-            </MuiPickersUtilsProvider>
+            <DatePickContainer>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <DatePicker  variant="inline" value={date} onChange={setDate} maxDate={currentDate} label="Pick a Date"/>
+                </MuiPickersUtilsProvider>
+            </DatePickContainer>
             <BodyData date={date}/>
         </div>
     );
