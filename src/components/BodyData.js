@@ -1,5 +1,25 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
+import styled from 'styled-components'
+
+const DataContainer = styled.div`
+    display: flex;
+    margin: 2% 10% 0 10%;
+    align-items: center;
+`;
+
+const MediaContainer = styled.img`
+    border-radius: 5%;
+    height: 500px;
+    width: 550px;
+`;
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    width: 50%;
+`;
 
 function BodyData({date}) {
     const [data, setData] = useState("");
@@ -11,16 +31,17 @@ function BodyData({date}) {
     }, [newDate])
     console.log(data);
     return(
-        <div>
-            Title: {data.title}
-            <br></br>
-            {data.media_type === 'image' 
-            ? <img src={data.url} alt="NASA APOD"/> 
-            : <iframe width="825" height="640" src={`${data.url}`}></iframe>}
-            <div>
-                {data.explanation}
-            </div>
-        </div>
+        <DataContainer>
+            <FlexContainer>
+                {data.media_type === 'image' 
+                ? <MediaContainer src={data.url} alt="NASA APOD"/> 
+                : <iframe width="550" height="500" src={`${data.url}`}></iframe>}
+            </FlexContainer>
+            <FlexContainer>
+                <h2>{data.title}</h2>
+                <p>{data.explanation}</p>
+            </FlexContainer>
+        </DataContainer>
     )
 }
 
